@@ -10,7 +10,7 @@ import type { Ref, PropType } from 'vue'
 import { defineComponent, ref, onMounted } from 'vue'
 
 import { TOOL_PEN, DEFAULT_SLIDE, DEFAULT_COLOR, TOOL_ERASER } from './config'
-import { getDistance, getCenter, calcImageRealSize, formatUrl } from './tool'
+import { getDistance, getCenter, calcImageRealSize } from './tool'
 
 import type { whiteboardSizeConfig, Pos } from './type'
 
@@ -172,12 +172,6 @@ export default defineComponent({
 
     // set background image
     const setWhiteboardBackground = (url: string) => {
-      // const layer = new Konva.Layer({
-      //   listening: false,
-      //   zIndex: 1
-      // })
-      // stage.add(layer)
-
       const baseImage = new Image()
 
       // baseImage.setAttribute('crossOrigin', '')
@@ -200,11 +194,6 @@ export default defineComponent({
 
     // 初始化绘制面板
     const initKonvaWhiteboard = () => {
-      // const layer = new Konva.Layer({
-      //   zIndex: 3
-      // })
-      // stage.add(layer)
-
       const canvas = <HTMLCanvasElement>document.createElement('canvas')
       canvas.width = stage.width()
       canvas.height = stage.height()
